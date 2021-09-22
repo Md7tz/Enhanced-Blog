@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "~=3.1.0"
 environs = {version = "==8.0.0", extras = ["django"]}
+django-crispy-forms = "*"
 
 [dev-packages]
 
