@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Third party
+    # Third-party
     'crispy_forms',
+    'taggit',
 
     # local
     'blog.apps.BlogConfig',

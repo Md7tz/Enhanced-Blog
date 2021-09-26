@@ -1,9 +1,12 @@
 {% extends 'blog/base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
   <h1>{{ post.title }}</h1>
+  <p class="tags badge badge-pill badge-secondary">Tags: {{ tags|join:", "}}</p>
   <p class="date">
     Published {{ post.publish }} by {{ post.author }} 
   </p>
@@ -11,4 +14,45 @@
   <p>
     <a href="{% url 'blog:post_share' post.id %}">Share this post</a>
   </p>
+
+  <h2>Similar Posts</h2>
+  {% for post in similar_posts %}
+    <p>
+      <a class="badge badge-info"href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    </p>
+  {% empty %}
+  <p>There are no similar posts yet.</p> 
+  {% endfor %}
+
+  {% with comments.count as total_comments %}
+    <h2>
+      {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h2>
+  {% endwith %}
+
+  {% for comment in comments %}
+  <div class="comment">
+    <p class="info">
+      Comment {{ forloop.counter }} by {{ comment.name }}
+      {{ comment.created}}
+    </p>
+    {{ comment.body|linebreaks }}
+  </div>
+  {% empty %}
+    <p>There are no comments yet.</p>
+  {% endfor %}
+
+  <hr style="color: #bbb; background-color: #bbb"/>
+  {% if new_comment %}
+    <h2>Your comment has been added.</h2>
+  {% else %}
+    <h2>Add a new comment</h2>
+    <form method="post">
+      <div class="form-group">
+        {{ comment_form|crispy }}
+        {% csrf_token %}
+      </div>
+      <p><input class="btn btn-primary my-3" type="submit" value="Add comment"></p>
+    </form>
+  {% endif %}
 {% endblock %}
