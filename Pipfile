@@ -8,6 +8,9 @@ django = "~=3.1.0"
 environs = {version = "==8.0.0", extras = ["django"]}
 django-crispy-forms = "*"
 django-taggit = "==1.2.0"
+numpy = "*"
+markdown = "==3.2.1"
+psycopg2-binary = "*"
 
 [dev-packages]
 

@@ -35,6 +35,10 @@ class Post(models.Model):
   published = PublishedManager()  # Our Custom manager
   tags = TaggableManager()        # The tags manager will allow you to add, retrieve, and remove tags from Post objects
 
+  @property
+  def date_diff(self):
+    return f"{str(timezone.now() - self.publish).split(':')[0]} hours ago."
+
   def get_absolute_url(self):
     return reverse('blog:post_detail', args=[self.publish.year, self.publish.month, self.publish.day, self.slug])
 
