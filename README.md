@@ -8,7 +8,7 @@
 - Styling with [Bootstrap v4](https://github.com/twbs/bootstrap)
 - Forms with [django-crispy-forms](https://github.com/django-crispy-forms/django-crispy-forms)
 
-![Homepage](homepage.png)
+![Homepage](homepage.PNG)
 ----
 
 ## Table of Contents
