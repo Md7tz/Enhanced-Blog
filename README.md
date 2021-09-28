@@ -22,7 +22,7 @@
 ----
 
 ## 📖 Installation
-DjangoX can be installed via Pip or Pipenv depending upon your setup. To start, clone the repo to your local computer and change into the proper directory.
+Enhanced-Blog can be installed via Pip or Pipenv depending upon your setup. To start, clone the repo to your local computer and change into the proper directory.
 
 ```
 $ git clone https://github.com/Md7tz/Enhanced-Blog.git
