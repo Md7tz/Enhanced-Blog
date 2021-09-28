@@ -26,7 +26,7 @@ class Post(models.Model):
   status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
 
   class Meta:
-    ordering=('-publish',)
+    ordering=('-publish',) # Descending order (newest to oldest)
 
   def __str__(self):
     return self.title
